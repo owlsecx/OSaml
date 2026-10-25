@@ -18,21 +18,18 @@
 
 ## 📌 Overview
 
-SAML / SSO / OIDC Configuration Auditor
+OSaml is an offline auditor for SAML, SSO and OIDC configurations. It inspects metadata, SAML Responses/Assertions and OIDC discovery/client documents using a hardened XML parser, checking signatures, certificates, algorithms and replay protections. Findings are graded and mapped to CWE, OWASP and MITRE references.
 
 ---
 
 ## ✨ Features
 
-- Offline SAML metadata, Response/Assertion and OIDC discovery/client auditor with auto-detection
-- Hardened expat ingestion (no DTD/entities, caps)
-- base64 / URL / DEFLATE / SAMLResponse= decoding
-- Built-in X.509 DER reader: expiry, key, sig alg
-- Unsigned assertion, XSW, comment-truncation checks
-- Conditions, audience, replay, RelayState, algorithms
-- alg:none, implicit, PKCE, redirect-URI, scope checks
-- CWE/OWASP/MITRE rule catalog, A+…F grade, CI gates
-- TXT / MD / JSON / CSV / SARIF export, --demo self-test
+- Audits SAML metadata, Responses/Assertions and OIDC discovery/client JSON with auto-detection
+- Hardened expat XML ingestion that rejects DTD/entities to defeat XXE and billion-laughs
+- base64/URL/DEFLATE and SAMLResponse decoding
+- Built-in X.509 DER reader for expiry, key and signature-algorithm checks
+- Unsigned-assertion, XML Signature Wrapping and comment-truncation detection
+- alg:none, PKCE, redirect-URI and scope checks with A+ to F grading and multiple export formats
 
 ---
 
@@ -46,7 +43,10 @@ SAML / SSO / OIDC Configuration Auditor
 ## 🚀 Usage
 
 ```bash
-./OSaml
+./OSaml -p metadata.xml --metadata
+./OSaml -p response.b64 --response --json -o report.json
+./OSaml --dir ./saml --fail-on high
+./OSaml --help
 ```
 
 ---
