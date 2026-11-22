@@ -53,7 +53,7 @@ OSaml is an offline auditor for SAML, SSO and OIDC configurations. It inspects m
 
 ## 📦 Part of OwlSec Toolkit
 
-This tool is part of the **OwlSec** suite — a collection of 300+ security and privacy tools.
+This tool is part of the **OwlSec** suite — a collection of 275+ security and privacy tools.
 
 🔗 [owlsec.org](https://owlsec.org)
 
